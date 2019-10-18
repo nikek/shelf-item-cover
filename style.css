@@ -1,0 +1,60 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --orangeYellow: linear-gradient(37deg, #ff6437 0%, #ffc864 100%);
+  --purpleBlue: linear-gradient(-137deg, #4100f4 0%, #af2996 100%);
+  --tealGreen: linear-gradient(-137deg, #19e68c 0%, #1d7f6e 100%);
+}
+
+body {
+  background-color: #303030;
+  color: white;
+}
+
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 8px;
+
+  overflow: scroll;
+  scroll-snap-type: x;
+}
+.item-list > * {
+  scroll-snap-align: center;
+}
+
+.item-list li {
+  width: 60vw;
+  height: 100px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.item-list.item-list--service li {
+  background: var(--tealGreen);
+}
+
+.item-list.item-list--feature li {
+  background: var(--orangeYellow);
+}
+
+.item-list.item-list--data li {
+  background: var(--purpleBlue);
+}
+
+@media screen and (min-width: 500px) {
+  .item-list li {
+    width: 200px;
+    scroll-snap-align: start;
+  }
+}
