@@ -10,14 +10,12 @@
   --orangeYellow: linear-gradient(37deg, #ff6437 0%, #ffc864 100%);
   --purpleBlue: linear-gradient(-137deg, #4100f4 0%, #af2996 100%);
   --tealGreen: linear-gradient(-137deg, #19e68c 0%, #1d7f6e 100%);
-}
-
-body {
+  --list-item-width: 200px;
   background-color: #303030;
   color: white;
 }
 
-.item-list {
+.list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -29,35 +27,34 @@ body {
   overflow: scroll;
   scroll-snap-type: x;
 }
-.item-list > * {
+.list > * {
   scroll-snap-align: center;
 }
 
-.item-list li {
-  width: 60vw;
+.item {
+  min-width: var(--list-item-width);
   height: 100px;
   padding: 8px;
   border-radius: 8px;
 }
 
-.item-list.item-list--service li {
+.list--service .item {
   background: var(--tealGreen);
 }
 
-.item-list.item-list--feature li {
+.list--feature .item {
   background: var(--orangeYellow);
 }
 
-.item-list.item-list--data li {
+.list--data .item {
   background: var(--purpleBlue);
 }
 
 @media screen and (min-width: 500px) {
-  .item-list {
-    grid-template-columns: repeat(auto-fill, 200px);
+  .list {
+    grid-template-columns: repeat(auto-fill, var(--list-item-width));
   }
-  .item-list li {
-    width: 200px;
+  .item {
     scroll-snap-align: start;
   }
 }
