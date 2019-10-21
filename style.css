@@ -11,8 +11,13 @@
   --purpleBlue: linear-gradient(-137deg, #4100f4 0%, #af2996 100%);
   --tealGreen: linear-gradient(-137deg, #19e68c 0%, #1d7f6e 100%);
   --list-item-width: 200px;
+  --margin: 8px;
   background-color: #303030;
   color: white;
+}
+
+body {
+  margin: var(--margin);
 }
 
 .list {
@@ -47,8 +52,28 @@
   background: var(--purpleBlue);
 }
 
+#card-page {
+  position: absolute;
+  border-radius: 800px;
+  transform-origin: top left;
+  transition-property: border-radius, transform;
+}
+#card-page.open {
+  top: 80px;
+  opacity: 0;
+  border-radius: 16px;
+  width: calc(100vw - var(--margin) * 2);
+  height: calc(100vh - 80px - var(--margin));
+}
+
 @media screen and (min-width: 500px) {
   .item {
     scroll-snap-align: start;
   }
+}
+
+.animate-on-transforms {
+  transition-property: transform;
+  transition-duration: 160ms;
+  transition-timing-function: ease;
 }
